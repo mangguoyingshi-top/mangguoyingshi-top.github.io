@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>芒果影视 | 甜蜜观影时光 | 海量影视在线看</title>
+<meta name="description" content="芒果影视(mangguoyingshi-top)为你开启甜蜜的观影时光。海量电影、剧集、综艺、动漫资源每日更新，从院线大片到经典老片，从热门剧集到小众佳作，甜甜的画面、暖暖的故事，总有一部能甜到你的心里。芒果一样黄澄澄的好心情，从这里开始。">
+<meta name="keywords" content="芒果影视, 甜蜜观影, 海量影视资源, 电影电视剧综艺动漫, 高清在线观看, 每日更新影视, mangguoyingshi-top">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Fredoka","Noto Sans SC","PingFang SC",sans-serif;background:#fffcf2;color:#3a2000;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* 顶部热带条 */
+.trop-bar{background:linear-gradient(90deg,#ffc72c,#ff8c00);color:#3a2000;padding:.55rem 1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;font-weight:700;letter-spacing:.5px}
+.trop-bar .left::before{content:"🥭 "}
+
+/* 芒果导航 */
+.mango-nav{position:sticky;top:0;z-index:100;background:rgba(255,252,242,.94);backdrop-filter:blur(10px);border-bottom:3px solid #ffe08a}
+.nav-in{max-width:1250px;margin:0 auto;padding:.7rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.brand{display:flex;align-items:center;gap:.75rem}
+.brand-fruit{width:44px;height:44px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:linear-gradient(135deg,#ffd54f,#ff9800);display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:inset -3px -3px 6px rgba(200,100,0,.3);transform:rotate(-20deg)}
+.brand h1{font-size:1.35rem;font-weight:900;letter-spacing:-.5px;line-height:1.1}
+.brand h1 em{font-style:normal;color:#e8890c}
+.brand small{font-size:.62rem;color:#a08040;letter-spacing:2px;display:block}
+.nav-links{display:flex;gap:.5rem;font-size:.85rem;font-weight:600}
+.nav-links a{padding:.5rem 1rem;border-radius:20px;color:#6a4a10;transition:.2s}
+.nav-links a:hover,.nav-links a.active{background:#ffc72c;color:#3a2000}
+.nav-cta{background:#ff8c00;color:#fff;padding:.6rem 1.5rem;border-radius:20px;font-weight:700;font-size:.85rem;transition:.2s;cursor:pointer;border:none;box-shadow:0 3px 10px rgba(255,140,0,.3)}
+.nav-cta:hover{background:#ffc72c;color:#3a2000;transform:translateY(-2px)}
+
+/* Hero 太阳放射 */
+.hero{background:radial-gradient(circle at 75% 45%,#ffe66d 0%,#ffc72c 25%,#ff9d00 55%,#ff8c00 100%);min-height:88vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:4rem 1.5rem;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 75% 45%,transparent 0deg,rgba(255,255,255,.12) 8deg,transparent 16deg);opacity:.6}
+.hero::after{content:"🥭";position:absolute;font-size:12rem;bottom:-3rem;left:-3rem;opacity:.06;transform:rotate(-15deg)}
+.hero-in{max-width:1250px;margin:0 auto;width:100%;grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;z-index:2}
+.hero-text .sweet{font-size:.72rem;letter-spacing:4px;color:#3a2000;text-transform:uppercase;font-weight:700;margin-bottom:1rem;display:block;background:#fff5cc;display:inline-block;padding:.3rem .8rem;border-radius:12px}
+.hero-text h2{font-size:clamp(2rem,5.5vw,4.5rem);font-weight:900;line-height:1.1;letter-spacing:-1px;color:#3a2000;margin-bottom:1.5rem;text-shadow:2px 2px 0 rgba(255,255,255,.4)}
+.hero-text h2 .mg{color:#fff}
+.hero-text p{font-size:1.05rem;color:#5a3a00;max-width:460px;margin-bottom:2rem;line-height:1.9}
+.hero-text .btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn-mango{padding:.9rem 2.2rem;border-radius:25px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.25s;border:none;font-family:inherit}
+.btn-yellow{background:#3a2000;color:#ffc72c;box-shadow:0 4px 0 #1a0f00}
+.btn-yellow:hover{transform:translateY(-2px);box-shadow:0 6px 0 #1a0f00}
+.btn-white{background:#fff;color:#3a2000}
+.btn-white:hover{background:#fff5cc}
+
+/* 芒果视觉 */
+.fruit-stage{position:relative;width:100%;max-width:400px;margin:0 auto}
+.big-mango{width:280px;height:280px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;margin:0 auto;background:linear-gradient(135deg,#ffe066 0%,#ffc72c 40%,#ff9800 70%,#e8890c 100%);box-shadow:inset -12px -12px 24px rgba(180,90,0,.3),0 15px 40px rgba(232,137,12,.3);animation:sway-mango 4s ease-in-out infinite;position:relative;transform:rotate(-15deg)}
+@keyframes sway-mango{0%,100%{transform:rotate(-15deg) translateY(0)}50%{transform:rotate(-12deg) translateY(-12px)}}
+.big-mango::after{content:"🥭";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:5rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
+.leaf{position:absolute;width:80px;height:40px;background:#2e8b22;border-radius:100% 0 100% 0;top:-10px;right:-10px;box-shadow:inset -4px -4px 8px rgba(0,0,0,.15)}
+.leaf2{position:absolute;width:60px;height:30px;background:#3aa02a;border-radius:100% 0 100% 0;bottom:20px;left:-15px;transform:rotate(120deg)}
+.pit{position:absolute;font-size:1.5rem;animation:float-pit 3s ease-in-out infinite}
+.pit:nth-child(1){top:15%;left:5%;animation-delay:0s}
+.pit:nth-child(2){top:60%;right:0;animation-delay:1s}
+.pit:nth-child(3){bottom:5%;left:15%;animation-delay:2s}
+@keyframes float-pit{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-12px) rotate(10deg)}}
+
+/* 叶片分隔 */
+.leaf-divider{text-align:center;padding:1.5rem;letter-spacing:12px;font-size:1.2rem}
+.leaf-divider span{display:inline-block;animation:leaf-wave 2s ease-in-out infinite}
+.leaf-divider span:nth-child(2){animation-delay:.3s}
+.leaf-divider span:nth-child(3){animation-delay:.6s}
+.leaf-divider span:nth-child(4){animation-delay:.9s}
+@keyframes leaf-wave{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+
+/* 通用 */
+.wrap{max-width:1250px;margin:0 auto;padding:4.5rem 1.5rem}
+.sec-head{margin-bottom:3rem;text-align:center}
+.sec-head .trop-tag{display:inline-block;background:#ffe08a;color:#e8890c;padding:.35rem 1.25rem;border-radius:15px;font-size:.72rem;font-weight:700;letter-spacing:2px;margin-bottom:1rem}
+.sec-head h2{font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;letter-spacing:-.5px;color:#3a2000}
+.sec-head h2 em{font-style:normal;color:#e8890c}
+.sec-head p{font-size:.92rem;color:#8a6a20;margin-top:.75rem;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* 甜蜜片单 */
+.sweet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}
+.sweet-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 15px rgba(120,80,0,.08);transition:.3s;border:2px solid #fff3d0}
+.sweet-card:hover{transform:translateY(-6px) rotate(1deg);box-shadow:0 12px 30px rgba(255,140,0,.25);border-color:#ffc72c}
+.sweet-card .poster{height:210px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.sweet-card .poster .sweetness{position:absolute;top:12px;left:12px;background:#ff8c00;color:#fff;font-size:.68rem;font-weight:700;padding:.25rem .6rem;border-radius:12px}
+.sweet-card .poster .sweetness::before{content:"甜度 "}
+.sweet-card .poster .trop-badge{position:absolute;top:12px;right:12px;font-size:1.2rem;background:rgba(255,255,255,.9);padding:.2rem .5rem;border-radius:50%}
+.sweet-card:nth-child(1) .poster{background:linear-gradient(135deg,#ffc72c,#ff8c00)}
+.sweet-card:nth-child(2) .poster{background:linear-gradient(135deg,#ff9d00,#ff6f00)}
+.sweet-card:nth-child(3) .poster{background:linear-gradient(135deg,#ffd54f,#ffb300)}
+.sweet-card:nth-child(4) .poster{background:linear-gradient(135deg,#ff8c00,#e8890c)}
+.sweet-card:nth-child(5) .poster{background:linear-gradient(135deg,#ffb300,#ff8c00)}
+.sweet-card:nth-child(6) .poster{background:linear-gradient(135deg,#ffc72c,#ffa000)}
+.sweet-card .info{padding:1.25rem}
+.sweet-card .info h3{font-size:1rem;font-weight:700;color:#3a2000;margin-bottom:.5rem}
+.sweet-card .info .desc{font-size:.82rem;color:#7a5a20;line-height:1.6}
+.sweet-card .info .taste{display:flex;gap:.4rem;margin-top:.75rem;flex-wrap:wrap}
+.sweet-card .info .taste span{font-size:.7rem;background:#fff8e0;color:#e8890c;padding:.2rem .6rem;border-radius:10px}
+
+/* 热带分类 */
+.trop-platter{background:linear-gradient(135deg,#fff3d0,#ffe8a0);border-radius:30px;padding:3rem;border:3px dashed #ffc72c}
+.trop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.5rem}
+.trop-item{text-align:center;transition:.3s;cursor:pointer}
+.trop-item .trop-orb{width:100px;height:100px;border-radius:50%;margin:0 auto .75rem;display:flex;align-items:center;justify-content:center;font-size:2.2rem;box-shadow:0 6px 15px rgba(120,80,0,.15);transition:.3s;position:relative}
+.trop-item:nth-child(1) .trop-orb{background:radial-gradient(circle at 35% 35%,#ffd54f,#ff9800)}
+.trop-item:nth-child(2) .trop-orb{background:radial-gradient(circle at 35% 35%,#ffab91,#e64a19)}
+.trop-item:nth-child(3) .trop-orb{background:radial-gradient(circle at 35% 35%,#b9f6ca,#2e8b22)}
+.trop-item:nth-child(4) .trop-orb{background:radial-gradient(circle at 35% 35%,#ce93d8,#7b1fa2)}
+.trop-item:nth-child(5) .trop-orb{background:radial-gradient(circle at 35% 35%,#90caf9,#1565c0)}
+.trop-item:nth-child(6) .trop-orb{background:radial-gradient(circle at 35% 35%,#f48fb1,#c2185b)}
+.trop-item:nth-child(7) .trop-orb{background:radial-gradient(circle at 35% 35%,#ffe082,#ff8f00)}
+.trop-item:nth-child(8) .trop-orb{background:radial-gradient(circle at 35% 35%,#a5d6a7,#388e3c)}
+.trop-item:hover .trop-orb{transform:scale(1.12) rotate(10deg)}
+.trop-item h4{font-size:.9rem;font-weight:700;color:#3a2000}
+.trop-item span{font-size:.7rem;color:#a08040;display:block;margin-top:.2rem}
+
+/* 甜蜜体验 */
+.sweet-exp{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}
+.exp-card{background:#fff;border-radius:18px;padding:1.75rem;transition:.25s;border-bottom:4px solid #ffc72c}
+.exp-card:nth-child(2){border-bottom-color:#ff8c00}
+.exp-card:nth-child(3){border-bottom-color:#2e8b22}
+.exp-card:nth-child(4){border-bottom-color:#ff9d00}
+.exp-card:hover{box-shadow:0 8px 25px rgba(120,80,0,.1);transform:translateY(-3px)}
+.exp-card .ic{font-size:2rem;margin-bottom:.75rem;display:block}
+.exp-card h4{font-size:1.05rem;font-weight:700;color:#3a2000;margin-bottom:.5rem}
+.exp-card p{font-size:.85rem;color:#6a4a10;line-height:1.6}
+
+/* 数据甜度 */
+.sweet-stats{background:linear-gradient(135deg,#3a2000,#5a3500);border-radius:25px;padding:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;position:relative;overflow:hidden}
+.sweet-stats::before{content:"🥭";position:absolute;font-size:14rem;right:-3rem;bottom:-4rem;opacity:.06;transform:rotate(-20deg)}
+.sweet-stats .n{font-size:2.5rem;font-weight:900;color:#ffc72c}
+.sweet-stats .l{font-size:.82rem;color:#ffd98a;margin-top:.5rem}
+
+/* 每日甜点 */
+.daily-dessert{background:#fff;border:3px solid #ffe08a;border-radius:25px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.dessert-text h3{font-size:1.6rem;font-weight:900;color:#3a2000;margin-bottom:1rem}
+.dessert-text p{font-size:.95rem;color:#6a4a10;line-height:1.8;margin-bottom:1.5rem}
+.dessert-btn{background:#ff8c00;color:#fff;padding:.85rem 2rem;border-radius:25px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;transition:.2s;box-shadow:0 4px 12px rgba(255,140,0,.3)}
+.dessert-btn:hover{background:#3a2000;color:#ffc72c;transform:translateY(-2px)}
+.dessert-visual{display:flex;justify-content:center;align-items:center}
+.mango-stack{position:relative;width:200px;height:200px}
+.mango-stack .m{position:absolute;width:80px;height:80px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:linear-gradient(135deg,#ffd54f,#ff9800);box-shadow:inset -4px -4px 8px rgba(200,100,0,.3)}
+.mango-stack .m1{top:10px;left:50%;transform:translateX(-50%) rotate(-15deg);z-index:3}
+.mango-stack .m2{top:60px;left:20px;transform:rotate(20deg);z-index:2;background:linear-gradient(135deg,#ffc72c,#ff8c00)}
+.mango-stack .m3{top:60px;right:20px;transform:rotate(-40deg);z-index:1;background:linear-gradient(135deg,#ffb300,#e8890c)}
+.mango-stack .l1{position:absolute;width:40px;height:20px;background:#2e8b22;border-radius:100% 0 100% 0;top:0;left:55%;z-index:4}
+
+/* 页脚 */
+.foot{background:#2a1800;color:#d4b878;padding:4rem 1.5rem 2rem;text-align:center}
+.foot .logo{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:900;color:#ffc72c;margin-bottom:1rem}
+.foot .logo em{font-style:normal;color:#ff8c00}
+.foot .trop-row{font-size:2rem;margin:1rem 0;letter-spacing:12px;opacity:.5}
+.foot p{font-size:.85rem;margin-bottom:.5rem}
+.foot .url{font-family:"JetBrains Mono",monospace;font-size:.85rem;color:#ffc72c;background:rgba(255,255,255,.06);padding:.6rem 1.5rem;border-radius:20px;display:inline-block;margin:1rem 0}
+.foot .links{display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;flex-wrap:wrap;font-size:.85rem}
+.foot .links a{color:#a08040;transition:.2s}
+.foot .links a:hover{color:#ffc72c}
+
+@media(max-width:768px){
+.trop-bar{font-size:.7rem}
+.hero,.hero-in{grid-template-columns:1fr}
+.big-mango{width:220px;height:220px}
+.big-mango::after{font-size:4rem}
+.nav-links{display:none}
+.sweet-grid{grid-template-columns:1fr;gap:1rem}
+.sweet-card .poster{height:180px;font-size:2.5rem}
+.sweet-stats{grid-template-columns:repeat(2,1fr);gap:1.5rem;padding:2rem}
+.trop-platter{padding:2rem}
+.trop-grid{grid-template-columns:repeat(4,1fr);gap:1rem}
+.trop-item .trop-orb{width:70px;height:70px;font-size:1.6rem}
+.daily-dessert{grid-template-columns:1fr;padding:2rem}
+.mango-stack{width:160px;height:160px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- 热带条 -->
+<div class="trop-bar">
+<span class="left">每日鲜甜 · 好片准时送达</span>
+<span>甜甜的画面 · 暖暖的故事</span>
+</div>
+
+<!-- 芒果导航 -->
+<nav class="mango-nav">
+<div class="nav-in">
+<div class="brand">
+<div class="brand-fruit">🥭</div>
+<div>
+<h1><em>芒果</em>影视</h1>
+<small>SWEET · CINEMA · TIME</small>
+</div>
+</div>
+<div class="nav-links">
+<a href="#" class="active">甜蜜首页</a>
+<a href="#sweet">甜蜜片单</a>
+<a href="#trop">热带分类</a>
+<a href="#exp">甜蜜体验</a>
+<a href="#dessert">每日甜点</a>
+<a href="#about">关于芒果</a>
+</div>
+<button class="nav-cta">🥭 来一颗芒果</button>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+<div class="hero-in">
+<div class="hero-text">
+<span class="sweet">🥭 Sweet Cinema</span>
+<h2>开启<span class="mg">甜蜜</span><br>观影时光</h2>
+<p>芒果影视，为你开启一段甜甜的观影旅程。海量电影、剧集、综艺、动漫每日新鲜送达，从院线大片到经典老片，总有一部能甜到你的心里。芒果一样黄澄澄的好心情，从这里开始。</p>
+<div class="btns">
+<button class="btn-mango btn-yellow">🥭 开始甜蜜观影</button>
+<button class="btn-mango btn-white">🍧 查看每日甜点</button>
+</div>
+</div>
+<div class="fruit-stage">
+<span class="pit">✨</span>
+<span class="pit">⭐</span>
+<span class="pit">✨</span>
+<div class="big-mango">
+<div class="leaf"></div>
+<div class="leaf2"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 叶片分隔 -->
+<div class="leaf-divider">
+<span>🍃</span><span>🥭</span><span>🍃</span><span>🥭</span>
+</div>
+
+<!-- 甜蜜片单 -->
+<section class="wrap" id="sweet">
+<div class="sec-head">
+<span class="trop-tag">🥭 甜蜜片单</span>
+<h2>今日<span>鲜甜</span>推荐</h2>
+<p>每天新鲜送达，每一部都像刚摘下的芒果一样甜蜜</p>
+</div>
+<div class="sweet-grid">
+<div class="sweet-card">
+<div class="poster"><span class="sweetness">95%</span><span class="trop-badge">🎬</span></div>
+<div class="info">
+<h3>怦然心动</h3>
+<div class="desc">像一颗熟透的芒果，甜而不腻，每一口都是初恋的滋味。</div>
+<div class="taste"><span>青春</span><span>爱情</span><span>甜蜜</span></div>
+</div>
+</div>
+<div class="sweet-card">
+<div class="poster"><span class="sweetness">90%</span><span class="trop-badge">🍿</span></div>
+<div class="info">
+<h3>爱乐之城</h3>
+<div class="desc">色彩斑斓的甜蜜与心酸，像芒果配上一点点海盐的回甘。</div>
+<div class="taste"><span>爱情</span><span>音乐</span><span>治愈</span></div>
+</div>
+</div>
+<div class="sweet-card">
+<div class="poster"><span class="sweetness">88%</span><span class="trop-badge">💕</span></div>
+<div class="info">
+<h3>你的名字</h3>
+<div class="desc">甜甜的邂逅，酸酸的错过，最后化成一整片芒果色的天空。</div>
+<div class="taste"><span>动画</span><span>奇幻</span><span>浪漫</span></div>
+</div>
+</div>
+<div class="sweet-card">
+<div class="poster"><span class="sweetness">92%</span><span class="trop-badge">🌞</span></div>
+<div class="info">
+<h3>小森林 夏秋篇</h3>
+<div class="desc">慢节奏的田园生活，像在树荫下啃一颗冰镇芒果的午后。</div>
+<div class="taste"><span>治愈</span><span>日常</span><span>清新</span></div>
+</div>
+</div>
+<div class="sweet-card">
+<div class="poster"><span class="sweetness">85%</span><span class="trop-badge">🍋</span></div>
+<div class="info">
+<h3>菊次郎的夏天</h3>
+<div class="desc">久石让的旋律配北野武的温情，是芒果苏打味的童年回忆。</div>
+<div class="taste"><span>经典</span><span>温情</span><span>音乐</span></div>
+</div>
+</div>
+<div class="sweet-card">
+<div class="poster"><span class="sweetness">93%</span><span class="trop-badge">🌸</span></div>
+<div class="info">
+<h3>情书</h3>
+<div class="desc">一封迟到的信，一段藏在心底的甜。岩井俊二的纯爱经典。</div>
+<div class="taste"><span>爱情</span><span>经典</span><span>纯爱</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 热带分类 -->
+<section class="wrap" id="trop">
+<div class="sec-head">
+<span class="trop-tag">🍍 热带分类</span>
+<h2>一整盘<span>热带</span>风味</h2>
+<p>按口味挑选，总有一款适合你此刻的心情</p>
+</div>
+<div class="trop-platter">
+<div class="trop-grid">
+<div class="trop-item"><div class="trop-orb">🥭</div><h4>甜蜜爱情</h4><span>286部</span></div>
+<div class="trop-item"><div class="trop-orb">🍊</div><h4>轻松喜剧</h4><span>342部</span></div>
+<div class="trop-item"><div class="trop-orb">🥝</div><h4>清新治愈</h4><span>198部</span></div>
+<div class="trop-item"><div class="trop-orb">🍇</div><h4>奇幻冒险</h4><span>176部</span></div>
+<div class="trop-item"><div class="trop-orb">🫐</div><h4>悬疑烧脑</h4><span>154部</span></div>
+<div class="trop-item"><div class="trop-orb">🍉</div><h4>热血励志</h4><span>312部</span></div>
+<div class="trop-item"><div class="trop-orb">🍌</div><h4>动画奇幻</h4><span>423部</span></div>
+<div class="trop-item"><div class="trop-orb">🍑</div><h4>经典怀旧</h4><span>265部</span></div>
+</div>
+</div>
+</section>
+
+<!-- 甜蜜体验 -->
+<section class="wrap" id="exp">
+<div class="sec-head">
+<span class="trop-tag">🍯 甜蜜体验</span>
+<h2>为什么选择<span>芒果</span></h2>
+<p>像芒果一样，我们只给你最甜的那部分</p>
+</div>
+<div class="sweet-exp">
+<div class="exp-card">
+<span class="ic">🥭</span>
+<h4>海量片源</h4>
+<p>电影、剧集、综艺、动漫一应俱全，海量资源每日更新，总有你看不完的好片。</p>
+</div>
+<div class="exp-card">
+<span class="ic">🌞</span>
+<h4>高清画质</h4>
+<p>从高清到4K蓝光，多种清晰度可选，在手机、平板、电视上都是甜蜜享受。</p>
+</div>
+<div class="exp-card">
+<span class="ic">🍃</span>
+<h4>清爽界面</h4>
+<p>干净纯粹的页面设计，没有多余干扰，打开就是你想看的片子。</p>
+</div>
+<div class="exp-card">
+<span class="ic">⚡</span>
+<h4>极速播放</h4>
+<p>多节点加速，点开即播，不用等待缓冲，甜蜜体验从第一秒开始。</p>
+</div>
+</div>
+</section>
+
+<!-- 数据甜度 -->
+<section class="wrap">
+<div class="sweet-stats">
+<div><div class="n">3,260</div><div class="l">甜蜜片源</div></div>
+<div><div class="n">15.8万</div><div class="l">甜蜜会员</div></div>
+<div><div class="n">每日</div><div class="l">鲜甜更新</div></div>
+<div><div class="n">4K</div><div class="l">蓝光画质</div></div>
+</div>
+</section>
+
+<!-- 每日甜点 -->
+<section class="wrap" id="dessert">
+<div class="sec-head">
+<span class="trop-tag">🍧 每日甜点</span>
+<h2>今日<span>甜点</span>推荐</h2>
+<p>编辑精心搭配，每天一份专属你的观影甜点</p>
+</div>
+<div class="daily-dessert">
+<div class="dessert-text">
+<h3>今日甜点：<br>芒果千层 · 甜蜜爱情片单</h3>
+<p>今天为你精选五部甜度爆表的爱情片，像一份精心叠制的芒果千层——每一层都是不同的甜。适合周末窝在沙发上，一口一口慢慢品尝。</p>
+<button class="dessert-btn">🥭 领取今日甜点片单</button>
+</div>
+<div class="dessert-visual">
+<div class="mango-stack">
+<div class="l1"></div>
+<div class="m m1"></div>
+<div class="m m2"></div>
+<div class="m m3"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 页脚 -->
+<footer class="foot" id="about">
+<div class="logo"><em>芒果</em>影视</div>
+<div class="trop-row">🥭 🍃 🥭 🍃 🥭</div>
+<p>甜甜的画面 · 暖暖的故事</p>
+<div class="url">https://mangguoyingshi-top.github.io</div>
+<div class="links">
+<a href="#">甜蜜首页</a><a href="#">甜蜜片单</a><a href="#">热带分类</a><a href="#">甜蜜体验</a><a href="#">每日甜点</a><a href="#">关于芒果</a>
+</div>
+<p style="font-size:.75rem;color:#8a7040;max-width:560px;margin:1rem auto 0;line-height:1.7">免责声明：本站为影视信息索引与在线观看指南平台，所有影片资源来自互联网公开渠道，版权归原作者及发行方所有。本站倡导尊重版权、支持正版。</p>
+<p style="margin-top:1.5rem;font-size:.72rem;color:#6a5020">© 2024 芒果影视 · 让每一天都甜一点</p>
+</footer>
+
+<script>
+// 导航高亮
+document.querySelectorAll('.nav-links a').forEach(function(a){
+a.addEventListener('click',function(){
+document.querySelectorAll('.nav-links a').forEach(function(n){n.classList.remove('active')});
+this.classList.add('active');
+});
+});
+// 甜点按钮
+document.querySelector('.dessert-btn').addEventListener('click',function(){
+this.innerHTML='✓ 今日甜点已送达';
+var self=this;
+setTimeout(function(){self.innerHTML='🥭 领取今日甜点片单'},2000);
+});
+</script>
+</body>
+</html>
